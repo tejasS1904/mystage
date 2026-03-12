@@ -1,0 +1,212 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "numerator",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "denominator",
+						"type": "uint256"
+					}
+				],
+				"name": "ERC2981InvalidDefaultRoyalty",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "receiver",
+						"type": "address"
+					}
+				],
+				"name": "ERC2981InvalidDefaultRoyaltyReceiver",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "numerator",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "denominator",
+						"type": "uint256"
+					}
+				],
+				"name": "ERC2981InvalidTokenRoyalty",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "receiver",
+						"type": "address"
+					}
+				],
+				"name": "ERC2981InvalidTokenRoyaltyReceiver",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "salePrice",
+						"type": "uint256"
+					}
+				],
+				"name": "royaltyInfo",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "receiver",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "interfaceId",
+						"type": "bytes4"
+					}
+				],
+				"name": "supportsInterface",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "Implementation of the NFT Royalty Standard, a standardized way to retrieve royalty payment information. Royalty information can be specified globally for all token ids via {_setDefaultRoyalty}, and/or individually for specific token ids via {_setTokenRoyalty}. The latter takes precedence over the first. Royalty is specified as a fraction of sale price. {_feeDenominator} is overridable but defaults to 10000, meaning the fee is specified in basis points by default. IMPORTANT: ERC-2981 only specifies a way to signal royalty information and does not enforce its payment. See https://eips.ethereum.org/EIPS/eip-2981#optional-royalty-payments[Rationale] in the ERC. Marketplaces are expected to voluntarily pay royalties together with sales, but note that this standard is not yet widely supported.",
+			"errors": {
+				"ERC2981InvalidDefaultRoyalty(uint256,uint256)": [
+					{
+						"details": "The default royalty set is invalid (eg. (numerator / denominator) >= 1)."
+					}
+				],
+				"ERC2981InvalidDefaultRoyaltyReceiver(address)": [
+					{
+						"details": "The default royalty receiver is invalid."
+					}
+				],
+				"ERC2981InvalidTokenRoyalty(uint256,uint256,uint256)": [
+					{
+						"details": "The royalty set for a specific `tokenId` is invalid (eg. (numerator / denominator) >= 1)."
+					}
+				],
+				"ERC2981InvalidTokenRoyaltyReceiver(uint256,address)": [
+					{
+						"details": "The royalty receiver for `tokenId` is invalid."
+					}
+				]
+			},
+			"kind": "dev",
+			"methods": {
+				"royaltyInfo(uint256,uint256)": {
+					"details": "Returns how much royalty is owed and to whom, based on a sale price that may be denominated in any unit of exchange. The royalty amount is denominated and should be paid in that same unit of exchange. NOTE: ERC-2981 allows setting the royalty to 100% of the price. In that case all the price would be sent to the royalty receiver and 0 tokens to the seller. Contracts dealing with royalty should consider empty transfers."
+				},
+				"supportsInterface(bytes4)": {
+					"details": "Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[ERC section] to learn more about how these ids are created. This function call must use less than 30 000 gas."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"mystagesticker/ERC2981.sol": "ERC2981"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts@5.5.0/utils/introspection/ERC165.sol": {
+			"keccak256": "0x2d9dc2fe26180f74c11c13663647d38e259e45f95eb88f57b61d2160b0109d3e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://81233d1f98060113d9922180bb0f14f8335856fe9f339134b09335e9f678c377",
+				"dweb:/ipfs/QmWh6R35SarhAn4z2wH8SU456jJSYL2FgucfTFgbHJJN4E"
+			]
+		},
+		"@openzeppelin/contracts@5.5.0/utils/introspection/IERC165.sol": {
+			"keccak256": "0x8891738ffe910f0cf2da09566928589bf5d63f4524dd734fd9cedbac3274dd5c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://971f954442df5c2ef5b5ebf1eb245d7105d9fbacc7386ee5c796df1d45b21617",
+				"dweb:/ipfs/QmadRjHbkicwqwwh61raUEapaVEtaLMcYbQZWs9gUkgj3u"
+			]
+		},
+		"mystagesticker/ERC2981.sol": {
+			"keccak256": "0x93f94b7e0f27930548896026d4d0051ad50d39c6eba851e3e8b831027d7a9858",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://77d2e353d17d41e4f5c5517f524ce9419192449e23bc4d378c976f6073fc9b7f",
+				"dweb:/ipfs/QmUYP2gFNYPVmhJCCefm8HeuGkBrfWkeug2DQvDaiTBPQ2"
+			]
+		},
+		"mystagesticker/IERC2981.sol": {
+			"keccak256": "0xf3c2b10523c0ece436d476041f922cf1b64cc2b52f254c64f3472379c06c419f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://216a4d3594cb5ea21e28ae4a10fd80abfb22b41d0095040b1bbb605ccdfc12fc",
+				"dweb:/ipfs/QmUNznoSwXrQ4W7aV2pC9dCXEbfq38o6DkvgzDnuen2xdi"
+			]
+		}
+	},
+	"version": 1
+}
